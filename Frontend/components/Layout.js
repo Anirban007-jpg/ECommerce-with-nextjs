@@ -1,9 +1,10 @@
 import React, {Fragment} from 'react'
+import Navbar from './Navbar';
 
 const Layout = ({children}) => {
  return (
     <Fragment>
-        <p>Header</p>
+        <Navbar />
         {children}
         <p>Footer</p>
     </Fragment>   
