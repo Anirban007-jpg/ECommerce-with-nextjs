@@ -1,28 +1,36 @@
-import React from "react"
+import React from 'react';
+import { Menu } from 'antd';
+// import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import 'antd/dist/antd.css';
+import Link from 'next/link';
+import {API_NAME} from '../config.js';
+
+const { Item } = Menu;
 
 const Navbar = () => {
-    return (
-        <React.Fragment>
-         
-  <nav className="nav-extended">
-    <div className="nav-wrapper">
-      <a href="#" className="brand-logo">Logo</a>
-      <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-      <ul id="nav-mobile" className="right hide-on-med-and-down">
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
-    </div>
-    <div className="nav-content">
-      <ul className="tabs tabs-transparent">
-        <li className="tab"><a>Test 1</a></li>
-        <li className="tab"><a>Test 4</a></li>
-      </ul>
-    </div>
-  </nav>
 
+    return (
+         
+       <Menu mode="horizontal" style={{backgroundColor: '#42a5f5'}}>
+         <Item style={{fontSize: '20px', fontWeight: 'bold'}}>
+            <Link href="/">
+              <a>{API_NAME}</a>
+            </Link>
+         </Item>
+         <Item>
+            <Link href="/login">
+              <a>Login</a>
+            </Link>
+         </Item>
+         <Item>
+            <Link href="/register">
+              <a>Register</a>
+            </Link>
+         </Item>
+
+       </Menu>
 
             
-  </React.Fragment>
     )
 }
 

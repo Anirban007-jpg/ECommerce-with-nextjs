@@ -3,7 +3,7 @@ import Layout  from "../components/Layout"
 const HomePage = () => {
     return (
         <Layout>
-            Welcome to Next.js!
+            Welcome to Amazonia! Home Page yet to be designed
         </Layout>
     )
 }
