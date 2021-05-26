@@ -3,6 +3,7 @@ const cp = require('cookie-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const fs = require('fs');
 require('dotenv').config();
 
 //app
@@ -23,6 +24,8 @@ if(process.env.NODE_ENV === 'development') {
 }
 
 
+// call the routes
+fs.readdirSync('./routes').map((r) => app.use('/', require(`./routes/${r}`)));     // localhost:5005/
 
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError'){
