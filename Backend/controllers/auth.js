@@ -4,9 +4,11 @@ require('dotenv').config()
 
 const bcrypt = require('bcrypt');
 
-exports.Register = (req, res) => {
+// make the function async
+exports.Register = async (req, res) => {
 
-    // Check if the user is already registered
+    try{
+        // Check if the user is already registered
     User.findOne({email: req.body.email}).exec((err,data) => {
         if (data){
           return res.status(400).json({
@@ -18,9 +20,10 @@ exports.Register = (req, res) => {
     // Create all the variables
     const {name,email,password,confirmed_password,address,mobile_no,about,role} = req.body;
     let username = sid.generate();
-    let profile = `${process.env.CLIENT_URL}/profile/username`;
+    let profile = `${process.env.CLIENT_URL}/profile/${username}`;
 
-    if (confirmed_password === ""){
+    // check whether password matches confirmed_password and confimrmed password is blank or not
+    if (confirmed_password === null){
         return res.status(403).json({
             error: "Confirm your password"
         })
@@ -36,7 +39,7 @@ exports.Register = (req, res) => {
 
     
     // register user
-    let user = new User({
+    let user = await new User({
         name,
         email,
         password:password1,
@@ -60,5 +63,12 @@ exports.Register = (req, res) => {
     })
 
 
+    }catch (err) {
+        console.log(err);
+        res.status(403).json({
+            error: "SOmething went wrong ! Please try again"
+        });
+    }
+    
 
 }
