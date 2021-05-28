@@ -5,9 +5,7 @@ require('dotenv').config()
 const bcrypt = require('bcrypt');
 
 // make the function async
-exports.Register = async (req, res) => {
-
-    try{
+exports.Register = (req, res) => {
         // Check if the user is already registered
     User.findOne({email: req.body.email}).exec((err,data) => {
         if (data){
@@ -39,7 +37,7 @@ exports.Register = async (req, res) => {
 
     
     // register user
-    let user = await new User({
+    let user = new User({
         name,
         email,
         password:password1,
@@ -63,12 +61,6 @@ exports.Register = async (req, res) => {
     })
 
 
-    }catch (err) {
-        console.log(err);
-        res.status(403).json({
-            error: "SOmething went wrong ! Please try again"
-        });
-    }
     
 
 }
