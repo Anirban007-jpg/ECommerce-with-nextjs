@@ -10,3 +10,8 @@ exports.userRegisterValidator = [
     check('about').not().isEmpty().withMessage('Your Bio is necessary'),
     check('role').not().isEmpty().withMessage('Role of the user is necessary')
 ];
+
+exports.userSigninValidator = [
+    check('email').not().isEmpty().withMessage('Email is mandatory'),
+    check('password').not().isEmpty().withMessage('Password is mandatory')
+];
