@@ -95,19 +95,23 @@ const RegisterComponent = () => {
                 <div className="form-group">
                     <label style={{fontSize: "20px"}}><i className="fa fa-envelope"></i>{" "}<strong>Email:</strong></label><br/>
                     <input className="form-control" type="email" value={email} onChange={handleChange('email')} placeholder="Enter your email...." />
-                </div><br/>
+                    <br/>
+                </div>
                 <div className="form-group">
                     <label style={{fontSize: "20px"}}><i className="fas fa-home"></i>{" "}<strong>Address:</strong></label><br/><br/>
                     <textarea rows="2" className="form-control" type="text" value={address} onChange={handleChange('address')} placeholder="Enter your address...." />
-                </div><br/>
+                    <br/>
+                </div>
                 <div className="form-group">
                     <label style={{fontSize: "20px"}}><i className="fas fa-phone-alt"></i>{" "}<strong>Mobile Number:</strong></label><br/>
                     <input className="form-control" type="text" value={mobile_no} onChange={handleChange('mobile_no')} placeholder="Enter your mobile number to be registered...." />
-                </div><br/>
+                    <br/>
+                </div>
                 <div className="form-group">
                     <label style={{fontSize: "20px"}}><i className="fas fa-portrait"></i>{" "}<strong>Bio:</strong> {((length-about.length) <= 0) ? (<><p style={{color: 'red'}}>[Word Limit reached!!!]</p></>) : (<><p>[{length-about.length} words left]</p></>)}</label><br/>
                     <textarea rows="4" style={{height: '200px'}} className="form-control" disabled={(length-about.length) <= 0} value={about} onChange={handleChange('about')} type="text" placeholder="Enter something about yourself...." />
-                </div><br/>
+                    <br/>
+                </div>
                 <div className="form-group">
                     <label style={{fontSize: "20px"}}><i className="fas fa-user-tag"></i>{" "}<strong>Role:</strong></label><br/>
                     <select type="text" className="form-control" value={role} onChange={handleChange('role')}>
@@ -116,15 +120,18 @@ const RegisterComponent = () => {
                         <option value='Customer'>User</option>
                         <option value='Shopper'>Shopper</option>
                     </select>
-                </div><br/>
+                    <br/>
+                </div>
                 <div className="form-group">
                     <label style={{fontSize: "20px"}}><i className="fas fa-lock"></i>{" "}<strong>Password:</strong></label><br/>
                     <input className="form-control" type="password" value={password} onChange={handleChange('password')} placeholder="Enter your Password...." />
-                </div><br/>
+                    <br/>
+                </div>
                 <div className="form-group">
                     <label style={{fontSize: "20px"}}><i className="fas fa-lock"></i>{" "}<strong>Confirm Password:</strong></label><br/>
                     <input className="form-control" type="password" value={confirmed_password} onChange={handleChange('confirmed_password')} placeholder="Re-Enter your given Password...." />
-                </div><br/>
+                    <br/>
+                </div>
                
                     {loading ? (
                         <div className="form-group"><br/>
