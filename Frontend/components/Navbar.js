@@ -12,13 +12,13 @@ const Navbar = () => {
   const [current, setCurrent] = useState("");
 
   useEffect(() => {
-    process.browser && setCurrent(window.localStorage.pathname)
-  }, [process.browser && window.localStorage.pathname])
+    process.browser && setCurrent(window.location.pathname)
+  }, [process.browser && window.location.pathname])
 
 
     return (
          
-       <Menu mode="horizontal" style={{backgroundColor: '#42a5f5'}} selectedKeys={[current]}>
+       <Menu mode="horizontal" selectedKeys={[current]}>
          <Item style={{fontSize: '20px', fontWeight: 'bold'}}>
             <Link href="/">
               <a>{API_NAME}</a>
