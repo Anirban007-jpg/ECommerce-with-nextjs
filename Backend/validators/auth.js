@@ -8,7 +8,9 @@ exports.userRegisterValidator = [
     check('address').not().isEmpty().withMessage('Address is necessary').isLength({max: 80}).withMessage('Adress should be atmost 80 charecters'),
     check('mobile_no').not().isEmpty().withMessage('Mobile no is mandatory').isLength({max:11}).withMessage('Mobile number must be 11 digits long'),
     check('about').not().isEmpty().withMessage('Your Bio is necessary'),
-    check('role').not().isEmpty().withMessage('Role of the user is necessary')
+    check('role').not().isEmpty().withMessage('Role of the user is necessary'),
+    check('youtube').not().isEmpty().withMessage('Youtube Link is necessary'),
+    check('facebook').not().isEmpty().withMessage('Facebook Link is neccessary')
 ];
 
 exports.userSigninValidator = [

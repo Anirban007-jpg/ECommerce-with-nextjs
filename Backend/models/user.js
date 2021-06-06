@@ -43,6 +43,22 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String
     },
+    verification_code: {
+        type: Number
+    },
+    email_verified : {
+        type: Number,
+        default: 0
+    },
+    youtube: {
+        type: String
+    },
+    twitter: {
+        type: String
+    },
+    facebook: {
+        type: String
+    },
     registered_on: {
         type: Date,
         default: Date.now()

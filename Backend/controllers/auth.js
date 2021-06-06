@@ -18,7 +18,7 @@ exports.Register = (req, res) => {
     })
 
     // Create all the variables
-    const {name,email,password,confirmed_password,address,mobile_no,about,role} = req.body;
+    const {name,email,password,confirmed_password,address,mobile_no,about,role,youtube,twitter,facebook} = req.body;
     let username = sid.generate();
     let profile = `${process.env.CLIENT_URL}/profile/${username}`;
 
@@ -48,7 +48,10 @@ exports.Register = (req, res) => {
         about,
         role,
         username,
-        profile       
+        profile,
+        youtube,
+        twitter,
+        facebook       
     });
     
     user.save((err, result) => {
