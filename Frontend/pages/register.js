@@ -7,8 +7,8 @@ const register = () => {
         <Layout>
             <React.Fragment>
                 <br />
-                <h2 className="text-center" style={{textDecoration: 'underline', fontWeight: 'bolder'}}>Registration Form</h2>
-                <div className="container mr-3 ml-3 mt-2 mb-2">
+                <h2 className="text-center">Registration Form</h2><br/>
+                <div className="mr-3 ml-3 pr-3 pl-3">
                     <RegisterComponent />
                 </div>
             </React.Fragment>

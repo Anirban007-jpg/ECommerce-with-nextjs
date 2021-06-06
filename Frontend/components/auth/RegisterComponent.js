@@ -86,7 +86,7 @@ const RegisterComponent = () => {
     
     // Form
     const RegistrationForm = (name,email,address,mobile_no,about,password,confirmed_password,role,loading) => (
-            <form noValidate onSubmit={handleSubmit}  className="row pb-4 ml-3 mr-4" style={{border: '3px solid black'}}>
+            <form noValidate onSubmit={handleSubmit}  className="row pb-4 ml-3 mr-4">
                 <div className="form-group">
                     <label style={{fontSize: "20px"}}><strong>Name:</strong></label><br/>
                     <input className="form-control" type="text" value={name} onChange={handleChange('name')} placeholder="Enter your name...." />

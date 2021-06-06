@@ -1,13 +1,22 @@
 import {useState, useEffect} from 'react';
 import { Menu } from 'antd';
 // import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
-import 'antd/dist/antd.css';
+import '../node_modules/antd/dist/antd.css';
+import {withRouter} from "next/router";
 import Link from 'next/link';
 import {API_NAME} from '../config.js';
 
 const { Item } = Menu;
 
-const Navbar = () => {
+const styleChange = (router,key) => {
+    if (router.pathname === key){
+      return {color:"grey" , fontWeight: "bolder"}
+    }else{
+      return;
+    }
+}
+
+const Navbar = ({router}) => {
 
   const [current, setCurrent] = useState("");
 
@@ -26,12 +35,12 @@ const Navbar = () => {
          </Item>
          <Item key="/login" onClick={(e) => setCurrent(e.key)}>
             <Link href="/login">
-              <a>Login</a>
+              <a style={styleChange(router, "/login")}>Login</a>
             </Link>
          </Item>
          <Item key="/register" onClick={(e) => setCurrent(e.key)}>
             <Link href="/register">
-              <a>Register</a>
+              <a style={styleChange(router, "/register")}>Register</a>
             </Link>
          </Item>
 
@@ -41,4 +50,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default withRouter(Navbar);
