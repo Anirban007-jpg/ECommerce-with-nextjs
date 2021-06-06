@@ -103,11 +103,11 @@ exports.Login = (req,res) => {
 
         // generate cookie and send it to Frontend
         res.cookie('token',token,{expiresIn: '18h'});
-        const {_id,registered_on,name,email,address,mobile_no,about,role,username} = data;
+        const {_id,registered_on,name,email,address,mobile_no,about,role,username,youtube,twitter,facebook} = data;
         // send all data to Frontend
         return res.status(200).json({
             token,
-            user: {_id,registered_on,name,email,address,mobile_no,about,role,username},
+            user: {_id,registered_on,name,email,address,mobile_no,about,role,username,youtube,twitter,facebook},
             message: "User Signed in Successfully"
         });
     })
