@@ -1,6 +1,5 @@
 import Layout  from "../components/Layout"
 import React from "react"
-  
 import Head from 'next/head';
 import { API_NAME, DOMAIN } from "../config";
 

@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {EditOutlined} from '@ant-design/icons';
+
 import Link from 'next/link';
 import {toast} from 'react-toastify';
 import {register} from '../../actions/auth';
@@ -144,7 +144,7 @@ const RegisterComponent = () => {
                     <select type="text" className="form-control" value={role} onChange={handleChange('role')}>
                         <option value=''>Select Role</option>
                         <option value='Dealer'>Dealer</option>
-                        <option value='Customer'>User</option>
+                        <option value='Customer'>Customer</option>
                         <option value='Shopper'>Shopper</option>
                     </select>
                     <br/>
