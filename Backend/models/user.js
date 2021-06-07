@@ -65,6 +65,10 @@ const userSchema = new mongoose.Schema({
     },
     updated_on: {
         type: Date
+    },
+    resetPasswordLink : {
+        type: String,
+        default: ''
     }
 },{});
 

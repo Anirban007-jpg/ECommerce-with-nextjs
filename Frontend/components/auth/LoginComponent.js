@@ -103,7 +103,9 @@ const RegisterComponent = () => {
 
     return (
             <React.Fragment>
-                <LoginGoogle />
+                <div className="container-fluid">
+                    <LoginGoogle />
+                </div>
                 {error ? toast.error(error) : ''}
                 {success ? <div className="alert alert-success">{success}</div>:''}
                 {LoginForm(email,password,loading)}

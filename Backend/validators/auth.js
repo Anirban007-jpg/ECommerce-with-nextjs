@@ -17,3 +17,12 @@ exports.userSigninValidator = [
     check('email').not().isEmpty().withMessage('Email is mandatory'),
     check('password').not().isEmpty().withMessage('Password is mandatory')
 ];
+
+exports.forgotPasswordValidator = [
+    check('email').not().isEmpty().withMessage('Email is mandatory')
+];
+
+
+exports.resetPasswordValidator = [
+    check('password').not().isEmpty().withMessage('Password is mandatory').isLength({min:6}).withMessage("New Password must be at least 6 charecters long")
+];
