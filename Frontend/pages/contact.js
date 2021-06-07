@@ -7,13 +7,13 @@ const contact = () => {
 
     const head = () => (
         <Head>
-            <title>Contact Page | {API_NAME}</title>
+            <title>Contact Us Page | {API_NAME}</title>
             <meta name="description"/>
             <link rel="canonical" href={`${DOMAIN}/contact`} />
-            <meta property="og:title" content={`Conatct Page | ${API_NAME}`} />
+            <meta property="og:title" content={`Conatct Us Page | ${API_NAME}`} />
             <meta name="og:description" content="This is the Contact Page" />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content={`${DOMAIN}`} />
+            <meta property="og:url" content={`${DOMAIN}/contact`} />
             <meta property="og:site_name" content={`${API_NAME}`} />
             <meta property="og:image:secure_url" />
             <meta property="og:image:type" content={"image/jpg"} />

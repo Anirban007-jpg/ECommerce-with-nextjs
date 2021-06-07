@@ -7,13 +7,13 @@ const about = () => {
 
     const head = () => (
         <Head>
-            <title>Home Page | {API_NAME}</title>
+            <title>About Us Page | {API_NAME}</title>
             <meta name="description"/>
-            <link rel="canonical" href={`${DOMAIN}`} />
-            <meta property="og:title" content={`Home Page | ${API_NAME}`} />
+            <link rel="canonical" href={`${DOMAIN}/about`} />
+            <meta property="og:title" content={`About Us Page | ${API_NAME}`} />
             <meta name="og:description" content="This is the landing Page" />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content={`${DOMAIN}`} />
+            <meta property="og:url" content={`${DOMAIN}/about`} />
             <meta property="og:site_name" content={`${API_NAME}`} />
             <meta property="og:image:secure_url" />
             <meta property="og:image:type" content={"image/jpg"} />
