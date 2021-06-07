@@ -198,6 +198,7 @@ exports.forgotpassword = (req,res) => {
         var message = {
             from: 'abanerjee763@gmail.com',
             to: email,
+            subject: `Password reset Link`,
             html: `
                 <p>Please use the following link to reset your password:</p>
                 <p>${process.env.CLIENT_URL}/auth/password/reset/${token}</p>
@@ -212,7 +213,7 @@ exports.forgotpassword = (req,res) => {
                 return res.staus(400).json({error : err});
             }else {
                 // send mail
-                transporter.sendMail(message), (err, success) => {
+                transporter.sendMail(message, (err, success) => {
                     if (err){
                         console.log(err);
                         res.json(400).status({
@@ -223,7 +224,7 @@ exports.forgotpassword = (req,res) => {
                     res.status(200).json({
                         success : true
                     });
-                }
+                })
             }
         });
     })
