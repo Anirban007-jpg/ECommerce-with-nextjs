@@ -4,6 +4,7 @@ import Link from 'next/link';
 import {toast} from 'react-toastify';
 import {isAuth} from "../../actions/auth";
 import {authenticate, login} from '../../actions/auth';
+import LoginGoogle from './LoginGoogle';
 
 const RegisterComponent = () => {
     // initialize the state
@@ -102,6 +103,7 @@ const RegisterComponent = () => {
 
     return (
             <React.Fragment>
+                <LoginGoogle />
                 {error ? toast.error(error) : ''}
                 {success ? <div className="alert alert-success">{success}</div>:''}
                 {LoginForm(email,password,loading)}
