@@ -4,6 +4,7 @@ import Link from 'next/link';
 import {toast} from 'react-toastify';
 import {register} from '../../actions/auth';
 
+
 const RegisterComponent = () => {
     // initialize the state
     const [values,setValues] = useState({
@@ -91,10 +92,10 @@ const RegisterComponent = () => {
                     loading:false
                 })
             }
-        })
-      
+      })
+}
+
     
-    }
     
     // Form
     const RegistrationForm = (name,email,address,mobile_no,about,password,confirmed_password,role,loading, twitter, facebook, youtube) => (

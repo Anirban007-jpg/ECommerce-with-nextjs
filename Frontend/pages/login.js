@@ -1,11 +1,11 @@
 import React from 'react'
 import LoginComponent from '../components/auth/LoginComponent'
 import Layout from '../components/Layout';
-  
+import {withRouter} from 'next/router';
 import Head from 'next/head';
 import { API_NAME, DOMAIN } from "../config";
 
-const login = () => {
+const login = ({router}) => {
 
     const head = () => (
         <Head>
@@ -22,14 +22,25 @@ const login = () => {
         </Head>
     )
 
+    const showRedirectedMessage = () => {
+        if (router.query.message){
+            return <div className="alert alert-danger">{router.query.message}</div>
+        }else{
+            return;
+        }
+    }
+
     return (
         <React.Fragment>
             {head()}
             <Layout>
-                    <br />
-                    <br/>
-                    <br/>
-                    <h2 className="text-center">Sign in to start your Session</h2><br/>
+
+                    <div className="canvas">
+                        <h2 className="heading1">Log In and Start Your Session</h2>
+                    </div><br/>
+                    <div className="row">
+                        <div className="col-md-12 offset-md-3">{showRedirectedMessage()}</div>
+                    </div><br/>
                     <div className="mr-3 ml-3 pr-3 pl-3">
                         <LoginComponent />
                     </div>
@@ -38,4 +49,4 @@ const login = () => {
     )
 }
 
-export default login;
+export default withRouter(login);

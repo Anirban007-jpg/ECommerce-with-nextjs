@@ -3,7 +3,7 @@ import React from "react"
 import Head from 'next/head';
 import { API_NAME, DOMAIN } from "../config";
 
-const HomePage = () => {
+const about = () => {
 
     const head = () => (
         <Head>
@@ -24,10 +24,7 @@ const HomePage = () => {
         <React.Fragment>
             {head()}
             <Layout>
-                <div className="canvas">
-                    <h1><strong>AMAZONIA - Amazon Clone</strong></h1>
-                    <p className="lead text-bold">This is a amazone clone made by Anirban and Bishal</p>
-                </div>
+           
                 <div>
                     <p>This Page will be designed Later</p>
                 </div>
@@ -37,4 +34,4 @@ const HomePage = () => {
     )
 }
   
-export default HomePage
+export default about

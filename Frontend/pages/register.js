@@ -22,12 +22,16 @@ const register = () => {
         </Head>
     )
 
+  
+        
+    // style={{ padding: '4rem 2rem',marginBottom: '2rem',backgrounColor: 'var(--bs-light)',borderRadius: '.3rem', textAlign: 'center', background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',animation: 'gradient 1s ease infinite', backgroundSize: '400% 400%' }}
     return (
         <React.Fragment>
             {head()}
             <Layout>
-                    <br />
-                    <h2 className="text-center">Registration Form</h2><br/>
+                        <div className="canvas">
+                            <h2 className="heading1">Registration Form</h2>
+                    </div><br/>
                     <div className="mr-3 ml-3 pr-3 pl-3">
                         <RegisterComponent />
                     </div>
