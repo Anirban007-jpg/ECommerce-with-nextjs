@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import {useEffect} from 'react'
 import Router from 'next/router'
 import Link from 'next/link';
 import {toast} from 'react-toastify';
@@ -16,6 +17,19 @@ const RegisterComponent = () => {
         success:'',
         loading:false
     });
+
+    // page protection
+    useEffect(() => {
+        if (isAuth() && isAuth().role === "Dealer"){
+            Router.push('/dealer')
+        }        
+        else if (isAuth() && isAuth().role === "Shopper"){
+            Router.push('/shopper')
+        }
+        else if (isAuth() && isAuth().role === "Customer"){
+            Router.push('/customer')
+        }
+    }, [])
 
     // destructure values from state
     const {

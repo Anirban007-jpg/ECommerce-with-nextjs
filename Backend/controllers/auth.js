@@ -204,7 +204,8 @@ exports.forgotpassword = (req,res) => {
                 <p>${process.env.CLIENT_URL}/auth/password/reset/${token}</p>
                 <hr />
                 <p>This email may contain sensetive information</p>
-                <p>https://amazonia.com</p>   `
+                <p>https://amazonia.com</p>   
+            `
         }
 
         // populating the db > user> resetPasswordLink
@@ -263,7 +264,7 @@ exports.resetPassword = (req,res) => {
                         });
                     }
 
-                    res.json({ 
+                    res.staus(200).json({ 
                         message: 'Great! Your Password is updated Successfully..'
                     })
                 })

@@ -22,6 +22,7 @@ const login = ({router}) => {
         </Head>
     )
 
+   
     const showRedirectedMessage = () => {
         if (router.query.message){
             return <div className="alert alert-danger">{router.query.message}</div>
