@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
-import Layout from '../../components/Layout'
 import {isAuth} from "../../actions/auth";
 import Router from 'next/router'
+
 
 const index = () => {
 
@@ -20,13 +20,16 @@ const index = () => {
     else  if (isAuth() && isAuth().role === 'Shopper'){
         Router.push('/shopper');
     }
+    else  if (isAuth() && isAuth().role === 'Admin'){
+        Router.push('/admin');
+    }
 
+    
 
     return (
-            <Layout>
-                <h1>Dealer Dashboard</h1>
-            </Layout>
+        <React.Fragment>
 
+        </React.Fragment>
     )
 }
 

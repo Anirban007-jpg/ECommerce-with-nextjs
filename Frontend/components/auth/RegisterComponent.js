@@ -3,6 +3,8 @@ import {useEffect} from 'react'
 import Link from 'next/link';
 import {toast} from 'react-toastify';
 import {register} from '../../actions/auth';
+import {isAuth} from "../../actions/auth";
+import Router from 'next/router'
 
 
 const RegisterComponent = () => {
@@ -36,6 +38,9 @@ const RegisterComponent = () => {
         }
         else if (isAuth() && isAuth().role === "Customer"){
             Router.push('/customer')
+        }
+        else if (isAuth() && isAuth().role === "Admin"){
+            Router.push('/admin')
         }
     }, [])
 
@@ -160,6 +165,7 @@ const RegisterComponent = () => {
                         <option value='Dealer'>Dealer</option>
                         <option value='Customer'>Customer</option>
                         <option value='Shopper'>Shopper</option>
+                        <option value='Admin'>Admin</option>
                     </select>
                     <br/>
                 </div>

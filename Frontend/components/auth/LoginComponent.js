@@ -29,6 +29,9 @@ const RegisterComponent = () => {
         else if (isAuth() && isAuth().role === "Customer"){
             Router.push('/customer')
         }
+        else if (isAuth() && isAuth().role === "Admin"){
+            Router.push('/admin')
+        }
     }, [])
 
     // destructure values from state
@@ -71,6 +74,9 @@ const RegisterComponent = () => {
                     }
                     else if (isAuth() && isAuth().role === 'Shopper'){
                         Router.push('/shopper');
+                    }
+                    else if (isAuth() && isAuth().role === "Admin"){
+                        Router.push('/admin')
                     }
                 })
             }

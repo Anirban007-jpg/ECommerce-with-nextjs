@@ -1,7 +1,6 @@
 import React from 'react'
 import RegisterComponent from '../components/auth/RegisterComponent';
 import Layout from '../components/Layout';
-  
 import Head from 'next/head';
 import { API_NAME, DOMAIN } from "../config";
 
@@ -32,7 +31,7 @@ const register = () => {
                         <div className="canvas">
                             <h2 className="heading1">Registration Form</h2>
                     </div><br/>
-                    <div className="mr-3 ml-3 pr-3 pl-3">
+                    <div>
                         <RegisterComponent />
                     </div>
             </Layout>

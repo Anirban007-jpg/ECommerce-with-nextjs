@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <React.Fragment>
          
-         <footer className="page-footer" style={{backgroundColor: '#757575'}}>
+         <footer className="page-footer" style={{backgroundColor: '#757575', marginTop : "650px"}}>
           <div className="container">
             <div className="row">
               <div className="col l6 s12">

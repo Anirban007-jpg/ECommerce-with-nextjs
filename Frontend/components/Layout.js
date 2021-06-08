@@ -10,7 +10,7 @@ const Layout = ({children}) => {
     <React.Fragment>
         <ToastContainer position="top-center" />
         <Navbar />
-        {children}
+            {children}
         <Footer />
     </React.Fragment>   
  );   
