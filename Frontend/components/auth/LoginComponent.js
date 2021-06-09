@@ -127,7 +127,6 @@ const RegisterComponent = () => {
                     <LoginGoogle />
                 </div>
                 {error ? toast.error(error) : ''}
-                {success ? <div className="alert alert-success">{success}</div>:''}
                 {LoginForm(email,password,loading)}
             </React.Fragment>
     )

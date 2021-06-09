@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react'
 import {isAuth} from "../../actions/auth";
 import Router from 'next/router'
+import Dashboard from '../../components/dealer/Dashboard';
 
 
 const index = () => {
@@ -28,7 +29,12 @@ const index = () => {
 
     return (
         <React.Fragment>
-
+            <Dashboard>
+                <div className="canvas" style={{height: "200px"}}>
+                    <h1 style={{fontSize: "60px"}}>Dealer Dashboard</h1>
+                </div><br/>
+                This will be designed later
+            </Dashboard>
         </React.Fragment>
     )
 }
