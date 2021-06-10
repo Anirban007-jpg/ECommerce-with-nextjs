@@ -40,7 +40,7 @@ const login = ({router}) => {
                         <h2 className="heading1">Log In and Start Your Session</h2>
                     </div><br/>
                     <div className="row">
-                        <div className="col-md-12 offset-md-3">{showRedirectedMessage()}</div>
+                        <div className="col-md-12">{showRedirectedMessage()}</div>
                     </div><br/>
                     <div className="mr-3 ml-3 pr-3 pl-3">
                         <LoginComponent />
