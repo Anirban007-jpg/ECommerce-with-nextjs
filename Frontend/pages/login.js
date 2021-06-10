@@ -37,7 +37,7 @@ const login = ({router}) => {
             <Layout>
 
                     <div className="canvas">
-                        <h2 className="heading1">Log In and Start Your Session</h2>
+                        <h2>Log In and Start Your Session</h2>
                     </div><br/>
                     <div className="row">
                         <div className="col-md-12">{showRedirectedMessage()}</div>
@@ -46,7 +46,7 @@ const login = ({router}) => {
                         <LoginComponent />
                     </div>
             </Layout>
-            <footer className="page-footer" style={{backgroundColor: '#757575', marginTop : "20px"}}>
+            <footer className="page-footer" style={{backgroundColor: '#757575', marginTop : "30px"}}>
           <div className="container">
             <div className="row">
               <div className="col l6 s12">

@@ -7,13 +7,11 @@
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #251356, #236985, #524515, #a39845);
   	background-size: 500% 500%;
     text-align: center;
-    height: 250px;
 }
 
 .heading1{
     font-weight: bolder;
     text-decoration: underline;
-    font-size: 5rem;
 }
 
 @keyframes animateBg {

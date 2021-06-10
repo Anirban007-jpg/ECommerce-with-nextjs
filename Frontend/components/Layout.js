@@ -9,7 +9,7 @@ const Layout = ({children}) => {
     <React.Fragment>
         <ToastContainer position="top-center" />
         <Navbar />
-            {children}
+        {children}
     </React.Fragment>   
  );   
 }

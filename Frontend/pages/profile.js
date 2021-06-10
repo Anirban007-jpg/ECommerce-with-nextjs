@@ -8,14 +8,14 @@ const profile = () => {
 
     const token = getCookie('token');
 
-    // page protection
+    // token expiry protection and user protection
     useEffect(() => {
         if (isAuth() === false){
             logout(() => {
                 Router.push({
                     pathname: '/login',
                     query : {
-                        message : 'Your session has expired. Please Log in again'
+                        message : 'Something went wrong! Please Login again'
                     }
                 })
             })

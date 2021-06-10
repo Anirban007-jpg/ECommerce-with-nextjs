@@ -17,7 +17,7 @@ router.post("/logout", Logout);
 router.put('/forgot-password', forgotPasswordValidator, runValidations, forgotpassword)
 
 // reset password
-router.put("/reset-password", resetPasswordValidator, runValidations, resetPassword)
+router.put("/reset-password", resetPassword)
 
 // google login
 router.post('/google-login', googleLogin);

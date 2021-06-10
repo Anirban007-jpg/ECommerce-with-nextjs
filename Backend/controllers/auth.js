@@ -201,7 +201,7 @@ exports.forgotpassword = (req,res) => {
             subject: `Password reset Link`,
             html: `
                 <p>Please use the following link to reset your password:</p>
-                <p>${process.env.CLIENT_URL}/auth/password/reset/${token}</p>
+                <p>${process.env.CLIENT_URL}/password/reset/${token}</p>
                 <hr />
                 <p>This email may contain sensetive information</p>
                 <p>https://amazonia.com</p>   
@@ -251,7 +251,7 @@ exports.resetPassword = (req,res) => {
                 }
 
                 const updatedFields = { 
-                    password: newPassword,
+                    password: req.body.newPassword,
                     resetPasswordLink: ''
                 };
 
@@ -264,7 +264,7 @@ exports.resetPassword = (req,res) => {
                         });
                     }
 
-                    res.staus(200).json({ 
+                    res.status(200).json({ 
                         message: 'Great! Your Password is updated Successfully..'
                     })
                 })
