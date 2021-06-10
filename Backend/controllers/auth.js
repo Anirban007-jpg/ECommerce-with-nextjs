@@ -250,8 +250,10 @@ exports.resetPassword = (req,res) => {
                     })
                 }
 
+                let password1 = bcrypt.hashSync(req.body.newPassword, 10);
+
                 const updatedFields = { 
-                    password: req.body.newPassword,
+                    password: password1,
                     resetPasswordLink: ''
                 };
 
@@ -273,3 +275,21 @@ exports.resetPassword = (req,res) => {
         })
     }
 }
+
+// From here upto the last comment ei gulo is for authorization
+exports.AuthMiddleware = () => {
+    const authUserId = req.auth._id;
+    User.findById({_id: authUserId}).exec((err,user) => {
+        if (err || !user){
+            return res.status(400).jso({
+                error: "User isn't signed in"
+            })
+        }
+
+        // request will store the user information in a object called profile
+        req.profile = user;
+        next();
+    })
+}
+
+

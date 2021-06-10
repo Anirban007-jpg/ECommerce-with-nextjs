@@ -3,6 +3,7 @@ import {isAuth, logout, getCookie} from "../../actions/auth";
 import {API_NAME} from "../../config";
 import Router from 'next/router';
 import Link from 'next/link';
+import '../../styles/SideNav.css';
 
 
 const SideNav = () => {

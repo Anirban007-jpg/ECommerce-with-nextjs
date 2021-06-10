@@ -4,6 +4,7 @@ import {logout} from "../../actions/auth";
 import Router, {withRouter} from "next/router";
 import {API_NAME} from '../../config';
 import Navbar from "../Navbar";
+import '../../styles/Sidenav1.css';
 
 
 const Sidenav = () => {
@@ -13,7 +14,7 @@ const Sidenav = () => {
      <div className="main-menu">
         <ul>
             <section className="logo">
-              <h1><strong>{API_NAME}</strong></h1>
+              <h4 style={{marginTop: '35px'}}><strong>{API_NAME}</strong></h4>
             </section><br/>
             <section className="home">
               <li className="menu-item">
