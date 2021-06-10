@@ -45,8 +45,11 @@ const index = () => {
 
     return (
         <React.Fragment>
-
             <Dashboard />
+            <div className="canvas">
+                <h1>Admin Dashboard</h1>
+            </div>
+            <p style={{marginLeft: '100px'}}>This content will be designed later</p>
         </React.Fragment>
     )
 }

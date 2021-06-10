@@ -1,4 +1,3 @@
-import Footer from './Footer';
 import Navbar from './Navbar';
 import React from 'react';
 import {ToastContainer} from "react-toastify";
@@ -11,7 +10,6 @@ const Layout = ({children}) => {
         <ToastContainer position="top-center" />
         <Navbar />
             {children}
-        <Footer />
     </React.Fragment>   
  );   
 }

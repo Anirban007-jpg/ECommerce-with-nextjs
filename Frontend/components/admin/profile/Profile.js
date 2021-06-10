@@ -1,10 +1,8 @@
 import React,{useEffect} from 'react'
-import { isAuth } from '../actions/auth';
-import Dashboard from '../components/dealer/Dashboard';
-import {getCookie,logout} from '../actions/auth';
+import {getCookie,logout} from '../../../actions/auth';
 import Router from 'next/router';
-
-const profile = () => {
+import { isAuth } from '../../../actions/auth';
+const Profile = () => {
 
     const token = getCookie('token');
 
@@ -34,15 +32,15 @@ const profile = () => {
     },[])
    
     return (
-        <React.Fragment>
-            <Dashboard>
-                <div className="canvas" style={{height: "200px"}}>
-                        <h1 style={{fontSize: "60px"}}>User Profile</h1>
-                </div><br/>
-                <p style={{marginLeft: "300px"}}>profile Component</p>
-            </Dashboard> 
-        </React.Fragment>
+        <div className="row" style={{marginLeft: "40px"}}>
+            <div className="col-md-6">
+                <p>User Image</p>
+            </div>
+            <div className="col-md-6">
+                <p>profile Component</p>
+            </div>
+        </div>
     )
 }
 
-export default profile
+export default Profile

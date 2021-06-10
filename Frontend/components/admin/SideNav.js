@@ -1,87 +1,106 @@
-import React from 'react'
-import {isAuth, logout} from "../../actions/auth";
+import React,{useEffect} from 'react'
+import {isAuth, logout, getCookie} from "../../actions/auth";
 import {API_NAME} from "../../config";
 import Router from 'next/router';
 import Link from 'next/link';
 
+
 const SideNav = () => {
+
+    const token = getCookie('token');
+
+    // page protection
+    useEffect(() => {
+        if (isAuth() === false){
+            logout(() => {
+                Router.push({
+                    pathname: '/login',
+                    query : {
+                        message : 'Your session has expired. Please Log in again'
+                    }
+                })
+            })
+        }
+        else if (!token){
+            logout(() => {
+                Router.push({
+                    pathname: '/login',
+                    query : {
+                        message : 'Your session has expired. Please Log in again'
+                    }
+                })
+            })
+        }
+        
+    },[])
+
+    useEffect(() => {require('../../static/js/myscript.js')},[])
+
     return (
         <>
-        <div className="sidebar">
-        <div className="sidebar-brand">
-            <div className="brand-flex">
-                <img src="" width="40px" alt="" />
+            <div className="sidebar">
+                <div className="logo_content">
+                    <div className="logo">
+                        <div className="logo_name">
+                            {API_NAME}
+                        </div>
+                    </div>
+                    <i className="bx bx-menu" id="btn"></i>
+                </div>
+                    <ul className="nav_list">
+                        <li>
+                            <i className="bx bx-search"></i><br/>
+                      
+                            <span className="tooltip">Search</span>                           
+                        </li>
+                        <li>
+                            <a href="/admin">
+                                <i className="bx bx-home"></i>&nbsp;&nbsp;
+                                    <span className="links_name">
+                                        <Link href="/admin">
+                                            Dashboard
+                                        </Link>
+                                </span>
+                                <span className="tooltip">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/adminprofile">
+                                <i className="bx bx-user"></i>&nbsp;&nbsp;
+                                    <span className="links_name">
+                                        <Link href="/adminprofile">
+                                            Profile
+                                        </Link>
+                                </span>
+                                <span className="tooltip">Profile</span>
+                            </a>
+                        </li>
+                        <li onClick={() => logout(() => {Router.replace('/')})}>
+                            <a>
+                                <i className="bx bx-log-out"></i>&nbsp;&nbsp;
+                                    <span className="links_name">
+                                        <Link href="">
+                                            Logout
+                                        </Link>
+                                     </span>
+                                <span className="tooltip">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
 
-                <div>
-                     <div className="brand-icons">
-                         <span className="las la-bell"></span>
-                         <span className="las la-user-circle"></span>
-                     </div>
+                <div className="profile_content">
+                    <div className="profile">
+                        <div className="profile_details">
+                            <img src="" alt="" />
+                            <div className="name_job">
+                                <div className="name">{isAuth() && isAuth().name}</div>
+                                <div className="email">{isAuth() && isAuth().email}</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="sidebar-main">
-            <div className="sidebar-user">
-                <img src="" alt="" />
-                <br/><br/>
-                <div>
-                    <h6>{isAuth() && isAuth().name}</h6>
-                    <span>{isAuth() && isAuth().email}</span>
-                </div> 
-            </div><hr/>
-
-            <div className="sidebar-menu">
-                    <div className="menu-head">
-                        <span>Dashboard</span> 
-                    </div>
-                    <div>
-                        <span>
-                            <Link href="/dealer">
-                                <a className="DLink">
-                                    {API_NAME}
-                                </a>
-                            </Link>
-                        </span>
-                    </div><hr/>
-                    <div className="menu-head">
-                        <span>Other Options</span> 
-                    </div>
-                    <ul>
-                        <li onClick={() => logout(() => {Router.push('/')})} style={{cursor: "pointer"}}>
-                            <span className="las la-balance-scale"></span>{' '}
-                                <a>Logout</a>
-                        </li>
-                    </ul><hr/>
-                    <div className="menu-head">
-                        <span>Profile Management</span> 
-                        
-                    </div>
-                    <li>
-                        <span className="las la-balance-scale"></span>{' '}
-                        <Link href="">
-                            <a>{isAuth() ? ( <>{isAuth().name}'s Profile</> ): ''}</a>
-                        </Link>
-                    </li>
-            </div>
-        </div>
-        </div>
-           <div className="main-content">
-           <header>
-               <div className="menu-toggle">
-                   <label for="">
-                       <span className="las la-bars"></span>
-                   </label>
-               </div>
-   
-               <div className="header-icons">
-                   <span className="las la-search"></span>
-                   <span className="las la-bookmark"></span>
-                   <span className="las la-sms"></span>
-               </div>
-           </header>
-           </div>
-           </>
+        </>
     )
 }
 

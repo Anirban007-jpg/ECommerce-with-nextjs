@@ -6,10 +6,12 @@ const Dashboard = ({children}) => {
     return (
         <>
             <SideNav />
-            <div style={{marginLeft: '300px'}}>
+            <div style={{marginLeft: "70px"}}>
                 {children}
-            </div> 
+            </div>
+           
         </>
+
     )
 }
 
