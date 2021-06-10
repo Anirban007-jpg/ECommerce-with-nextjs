@@ -30,10 +30,9 @@ const index = () => {
     return (
         <React.Fragment>
             <Dashboard>
-                <div className="canvas" style={{height: "200px"}}>
-                    <h1 style={{fontSize: "60px"}}>Dealer Dashboard</h1>
-                </div><br/>
-                This will be designed later
+                <div className="canvas">
+                    <h1 className="heading1">Dealer Dashboard</h1>
+                </div>
             </Dashboard>
         </React.Fragment>
     )

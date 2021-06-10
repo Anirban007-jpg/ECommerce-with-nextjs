@@ -4,14 +4,16 @@ import Sidenav from './Sidenav';
 
 
 
-const Dashboard = () => {
+const Dashboard = ({children}) => {
     
    
 
     return (
         <>
           <Sidenav/>
-          
+          <div>
+            {children}
+          </div>
         </>
     )
 }

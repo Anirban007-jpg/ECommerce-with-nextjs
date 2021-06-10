@@ -37,7 +37,7 @@ const profile = () => {
         <React.Fragment>
             <Dashboard>
                 <div className="canvas" style={{height: "200px"}}>
-                        <h1 style={{fontSize: "60px"}}>User Profile</h1>
+                        <h1 className="heading1">User Profile</h1>
                 </div><br/>
                 <p style={{marginLeft: "300px"}}>profile Component</p>
             </Dashboard> 
