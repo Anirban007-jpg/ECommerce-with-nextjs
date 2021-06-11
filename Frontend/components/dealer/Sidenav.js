@@ -4,7 +4,10 @@ import {logout} from "../../actions/auth";
 import Router, {withRouter} from "next/router";
 import {API_NAME} from '../../config';
 import Navbar from "../Navbar";
-import '../../styles/Sidenav1.css';
+import '../../static/css/Sidenav1.css';
+import dynamic from 'next/dynamic';
+// const DynamicContent = dynamic(() => 
+//     import('../../styles/Sidenav1.css'))
 
 
 const Sidenav = () => {
@@ -41,7 +44,9 @@ const Sidenav = () => {
                         Logout
                   </span>
                 </li>
+                
             </section>
+            
             <section className="profile_content">
 
             </section>

@@ -23,13 +23,11 @@ const about = () => {
     return (
         <React.Fragment>
             {head()}
-            <Layout>
            
                 <div>
                     <p>This Page will be designed Later</p>
                 </div>
               
-            </Layout>
             <footer className="page-footer" style={{backgroundColor: '#757575', marginTop : "250px"}}>
           <div className="container">
             <div className="row">

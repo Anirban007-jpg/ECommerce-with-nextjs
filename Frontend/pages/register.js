@@ -27,14 +27,13 @@ const register = () => {
     return (
         <React.Fragment>
             {head()}
-            <Layout>
+
                         <div className="canvas">
                             <h2 className="heading1">Registration Form</h2>
                     </div><br/>
                     <div>
                         <RegisterComponent />
                     </div>
-            </Layout>
             <footer className="page-footer" style={{backgroundColor: '#757575', marginTop : "20px"}}>
           <div className="container">
             <div className="row">

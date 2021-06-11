@@ -1,4 +1,3 @@
-import '../node_modules/antd/dist/antd.css';
 import {withRouter} from "next/router";
 import Router from 'next/router';
 import Link from 'next/link';

@@ -3,12 +3,15 @@ import {isAuth, logout, getCookie} from "../../actions/auth";
 import {API_NAME} from "../../config";
 import Router from 'next/router';
 import Link from 'next/link';
-import '../../styles/SideNav.css';
+import '../../static/css/SideNav.css';
+import dynamic from 'next/dynamic';
+// const DynamicContent = dynamic(() => 
+//     import('../../styles/SideNav.css'))
+
 
 
 const SideNav = () => {
 
-    const token = getCookie('token');
 
     // page protection
     useEffect(() => {
@@ -22,23 +25,16 @@ const SideNav = () => {
                 })
             })
         }
-        else if (!token){
-            logout(() => {
-                Router.push({
-                    pathname: '/login',
-                    query : {
-                        message : 'Your session has expired. Please Log in again'
-                    }
-                })
-            })
-        }
+       
+        require('../../static/js/myscript.js');
         
     },[])
 
-    useEffect(() => {require('../../static/js/myscript.js')},[])
+    // useEffect(() => {,[])
 
     return (
         <>
+        
             <div className="sidebar">
                 <div className="logo_content">
                     <div className="logo">

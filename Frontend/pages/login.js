@@ -34,7 +34,6 @@ const login = ({router}) => {
     return (
         <React.Fragment>
             {head()}
-            <Layout>
 
                     <div className="canvas">
                         <h2>Log In and Start Your Session</h2>
@@ -45,7 +44,6 @@ const login = ({router}) => {
                     <div className="mr-3 ml-3 pr-3 pl-3">
                         <LoginComponent />
                     </div>
-            </Layout>
             <footer className="page-footer" style={{backgroundColor: '#757575', marginTop : "30px"}}>
           <div className="container">
             <div className="row">

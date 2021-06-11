@@ -204,8 +204,10 @@ const RegisterComponent = () => {
 
     return (
             <React.Fragment>
+                <hr/>
                 {error ? toast.error(error) : ''}
                 {success ? <div className="alert alert-success">{success}<Link href="/login">Sign in</Link></div>:''}
+                <hr/><br/>
                 {showForm && RegistrationForm(name,email,address,mobile_no,about,password,confirmed_password,role,loading, twitter,facebook,youtube)}
             </React.Fragment>
     )

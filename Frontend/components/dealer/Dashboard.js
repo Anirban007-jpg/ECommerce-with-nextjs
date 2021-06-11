@@ -10,9 +10,8 @@ const Dashboard = ({children}) => {
     return (
         <>
           <Sidenav/>
-          <div>
             {children}
-          </div>
+
         </>
     )
 }

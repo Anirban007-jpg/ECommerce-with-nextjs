@@ -23,7 +23,6 @@ const contact = () => {
     return (
         <React.Fragment>
             {head()}
-            <Layout>
                 <div className="canvas">
                     <h1><strong>AMAZONIA - Amazon Clone</strong></h1>
                     <p className="lead text-bold">This is the contact page so that you can contact with the website</p>
@@ -31,8 +30,6 @@ const contact = () => {
                 <div>
                     <p>This Page will be designed Later</p>
                 </div>
-              
-            </Layout>
             <footer className="page-footer" style={{backgroundColor: '#757575', marginTop : "250px"}}>
           <div className="container">
             <div className="row">

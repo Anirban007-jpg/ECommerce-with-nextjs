@@ -3,7 +3,7 @@
     padding: 4rem 2rem;
     margin-top: 0px;
     margin-bottom: 2rem;
-    animation: animateBg 10s ease infinite;
+    animation: animateBg 10s ease;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #251356, #236985, #524515, #a39845);
   	background-size: 500% 500%;
     text-align: center;

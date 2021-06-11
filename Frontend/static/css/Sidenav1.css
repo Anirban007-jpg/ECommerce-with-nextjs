@@ -32,7 +32,7 @@ body{
 .main-menu:hover{
   width : 250px;
   overflow-y: scroll;
-
+  overflow-x: scroll;
 }
 
 .main-menu ul .logo{
@@ -71,7 +71,7 @@ section.home{
   background-color: #f3f3f3;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 5px;
 }
 
@@ -82,4 +82,4 @@ section.home{
 ::-webkit-scrollbar-thumb {
   background: #bbbbbb;
   border-radius: 10px;
-}
+} */

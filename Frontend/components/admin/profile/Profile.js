@@ -18,16 +18,6 @@ const Profile = () => {
                 })
             })
         }
-        else if (!token){
-            logout(() => {
-                Router.push({
-                    pathname: '/login',
-                    query : {
-                        message : 'Your session has expired. Please Log in again'
-                    }
-                })
-            })
-        }
     
     },[])
    
