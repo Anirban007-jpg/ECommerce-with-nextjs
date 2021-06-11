@@ -23,7 +23,7 @@ const HomePage = () => {
     return (
         <React.Fragment>
             {head()}
-            <Layout>
+              <Layout>
                 <div className="canvas">
                     <h1><strong>AMAZONIA - Amazon Clone</strong></h1>
                     <p className="lead text-bold">This is a amazone clone made by Anirban and Bishal</p>
@@ -31,9 +31,7 @@ const HomePage = () => {
                 <div>
                     <p>This Page will be designed Later</p>
                 </div>
-              
-            </Layout>
-                
+              </Layout> 
          <footer className="page-footer" style={{backgroundColor: '#757575', marginTop : "350px"}}>
           <div className="container">
             <div className="row">

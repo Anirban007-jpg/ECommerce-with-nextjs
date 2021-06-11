@@ -48,9 +48,10 @@ body{
 
 .main-menu .menu-item{
   padding: 10px;
+  
 }
 .main-menu .menu-item:hover{
-  background-color: #d6d6d6;
+  background-color: #ceecee;
   cursor: pointer;
 }
 
@@ -71,7 +72,7 @@ section.home{
   background-color: #f3f3f3;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 5px;
 }
 
@@ -82,4 +83,4 @@ section.home{
 ::-webkit-scrollbar-thumb {
   background: #bbbbbb;
   border-radius: 10px;
-} */
+}

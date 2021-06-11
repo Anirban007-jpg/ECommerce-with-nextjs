@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
-import Dashboard from '../components/admin/Dashboard';
-import Profile from '../components/admin/profile/Profile';
+import Dashboard from '../../components/admin/Dashboard';
+import Profile from '../../components/admin/profile/Profile';
 
 const adminprofile = () => {
 

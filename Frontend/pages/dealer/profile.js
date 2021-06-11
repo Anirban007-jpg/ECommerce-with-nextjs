@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
-import { isAuth } from '../actions/auth';
-import Dashboard from '../components/dealer/Dashboard';
-import {getCookie,logout} from '../actions/auth';
+import { isAuth } from '../../actions/auth';
+import Dashboard from '../../components/dealer/Dashboard';
+import {getCookie,logout} from '../../actions/auth';
 import Router from 'next/router';
 
 const profile = () => {

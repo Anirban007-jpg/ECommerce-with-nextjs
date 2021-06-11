@@ -5,14 +5,13 @@ import "../static/css/global.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Navbar from '../components/Navbar';
+
 // import '../static/css/Sidenav1.css';
 
 function MyApp({ Component, pageProps }) {
     return (
         <>
             <ToastContainer position="top-center" />
-            <Navbar />
             <Component {...pageProps} />
         </>
     )
