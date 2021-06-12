@@ -8,13 +8,13 @@ import { Scrollbars } from 'react-custom-scrollbars';
 // import '../static/css/SideNav.css';
 
 
-import '../static/css/Sidenav1.css';
+
 
 function MyApp({ Component, pageProps }) {
     return (
         <>
             <ToastContainer position="top-center" />
-                <Component {...pageProps} />
+            <Component {...pageProps} />
         </>
     )
   }

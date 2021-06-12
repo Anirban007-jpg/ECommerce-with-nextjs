@@ -1,103 +1,69 @@
-import React,{useEffect} from 'react'
-import {isAuth, logout, getCookie} from "../../actions/auth";
-import {API_NAME} from "../../config";
-import Router from 'next/router';
+import React,{useState, useEffect} from 'react';
 import Link from 'next/link';
-// import '../../static/css/SideNav.css';
+import {logout} from "../../actions/auth";
+import Router, {withRouter} from "next/router";
+import {API_NAME} from '../../config';
+// import '../../static/css/Sidenav1.css';
 import dynamic from 'next/dynamic';
-// const DynamicContent = dynamic(() => 
-//     import('../../styles/SideNav.css'))
+import '../../static/css/Sidenav1.css';
 
+const Changestyle = (router,key) => {
+    if (router.pathname === key){
+      return {backgroundColor: '#ceecee', transition: "0.5s ease"}
+    }else{
+      return;
+  }
+}
 
-
-const SideNav = () => {
-
-
-    // page protection
-    useEffect(() => {
-        if (isAuth() === false){
-            logout(() => {
-                Router.push({
-                    pathname: '/login',
-                    query : {
-                        message : 'Your session has expired. Please Log in again'
-                    }
-                })
-            })
-        }
-       
-        require('../../static/js/myscript.js');
-    },[])
-
-    // useEffect(() => {,[])
+const SideNav = ({router}) => {
 
     return (
         <>
         
-            <div className="sidebar">
-                <div className="logo_content">
-                    <div className="logo">
-                        <div className="logo_name">
-                            {API_NAME}
-                        </div>
-                    </div>
-                    <i className="bx bx-menu" id="btn"></i>
-                </div>
-                    <ul className="nav_list">
-                        <li>
-                            <i className="bx bx-search"></i><br/>
-                      
-                            <span className="tooltip">Search</span>                           
-                        </li>
-                        <li>
-                            <a href="/admin">
-                                <i className="bx bx-home"></i>&nbsp;&nbsp;
-                                    <span className="links_name">
-                                        <Link href="/admin">
-                                            Dashboard
-                                        </Link>
-                                </span>
-                                <span className="tooltip">Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/admin/adminprofile">
-                                <i className="bx bx-user"></i>&nbsp;&nbsp;
-                                    <span className="links_name">
-                                        <Link href="/admin/adminprofile">
-                                            Profile
-                                        </Link>
-                                </span>
-                                <span className="tooltip">Profile</span>
-                            </a>
-                        </li>
-                        <li onClick={() => logout(() => {Router.replace('/')})}>
-                            <a>
-                                <i className="bx bx-log-out"></i>&nbsp;&nbsp;
-                                    <span className="links_name">
-                                        <Link href="">
-                                            Logout
-                                        </Link>
-                                     </span>
-                                <span className="tooltip">Logout</span>
-                            </a>
-                        </li>
-                    </ul>
+        <div className="main-menu">
+        <ul>
+            <section className="logo">
+              <h4 style={{marginTop: '35px'}}><strong>{API_NAME}</strong></h4>
+            </section><br/>
+            <section className="home">
+              <li className="menu-item" style={Changestyle(router, "/admin")}>
+                  <a href="/admin"><i className="fas fa-home"></i></a>&nbsp;&nbsp;&nbsp;
+                  <span className="items" >
+                    <Link href="/admin" >
+                        <a style={{color: 'black', fontWeight: '700'}}>
+                          Dashboard
+                        </a>
+                    </Link>
+                  </span>
+                </li>
+            </section>
+            <section className="links">
+                <li className="menu-item" style={Changestyle(router, "/admin/profile")}>
+                  <a href="/admin/profile"><i className="fas fa-user"></i></a>&nbsp;&nbsp;&nbsp;
+                  <span className="items">
+                    <Link href="/admin/profile">
+                      <a style={{color: 'black', fontWeight: '700'}}>
+                        Profile
+                      </a>
+                    </Link>
+                  </span>
+                </li>
+                <li className="menu-item" onClick={() => logout(() => {Router.replace('/')})}>
+                  <i className="fas fa-sign-out-alt"></i>&nbsp;&nbsp;&nbsp;
+                  <span className="items">
+                        Logout
+                  </span>
+                </li>
+                
+            </section>
+            
+            <section className="profile_content">
 
-                <div className="profile_content">
-                    <div className="profile">
-                        <div className="profile_details">
-                            <img src="" alt="" />
-                            <div className="name_job">
-                                <div className="name">{isAuth() && isAuth().name}</div>
-                                <div className="email">{isAuth() && isAuth().email}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
+        </ul>
+    </div>
         </>
-    )
+    );
 }
 
-export default SideNav
+export default withRouter(SideNav)
