@@ -32,7 +32,6 @@ body{
 .main-menu:hover{
   width : 250px;
   overflow-y: scroll;
-  overflow-x: scroll;
 }
 
 .main-menu ul .logo{
@@ -81,6 +80,6 @@ section.home{
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #bbbbbb;
+  background: #daa3a3;
   border-radius: 10px;
 }

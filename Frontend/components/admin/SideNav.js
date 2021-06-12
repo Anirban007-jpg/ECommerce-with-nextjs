@@ -3,7 +3,7 @@ import {isAuth, logout, getCookie} from "../../actions/auth";
 import {API_NAME} from "../../config";
 import Router from 'next/router';
 import Link from 'next/link';
-import '../../static/css/SideNav.css';
+// import '../../static/css/SideNav.css';
 import dynamic from 'next/dynamic';
 // const DynamicContent = dynamic(() => 
 //     import('../../styles/SideNav.css'))
@@ -27,7 +27,6 @@ const SideNav = () => {
         }
        
         require('../../static/js/myscript.js');
-        
     },[])
 
     // useEffect(() => {,[])

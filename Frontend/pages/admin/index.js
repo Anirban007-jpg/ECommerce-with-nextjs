@@ -4,6 +4,7 @@ import {isAuth} from "../../actions/auth";
 import Router from 'next/router'
 import Head from 'next/head';
 
+
 const index = () => {
 
 
