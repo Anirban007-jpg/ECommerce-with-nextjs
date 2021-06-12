@@ -62,10 +62,10 @@ const SideNav = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="/adminprofile">
+                            <a href="/admin/adminprofile">
                                 <i className="bx bx-user"></i>&nbsp;&nbsp;
                                     <span className="links_name">
-                                        <Link href="/adminprofile">
+                                        <Link href="/admin/adminprofile">
                                             Profile
                                         </Link>
                                 </span>

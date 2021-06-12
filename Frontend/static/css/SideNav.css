@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -36,6 +37,7 @@ body {
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
+  overflow-y: scroll;
 }
 
 .sidebar.active {
@@ -280,4 +282,17 @@ body {
 .profile .profile_details .email {
   font-size:12px;
   font-weight: 400;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bbbbbb;
+  border-radius: 10px;
 }
