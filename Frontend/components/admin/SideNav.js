@@ -5,7 +5,7 @@ import Router, {withRouter} from "next/router";
 import {API_NAME} from '../../config';
 // import '../../static/css/Sidenav1.css';
 import dynamic from 'next/dynamic';
-import '../../static/css/Sidenav1.css';
+import '../../static/css/Sidenav.css';
 
 const Changestyle = (router,key) => {
     if (router.pathname === key){

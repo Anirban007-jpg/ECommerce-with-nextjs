@@ -14,9 +14,13 @@ const index = () => {
      }, [])
 
 
+    if (!process.browser){
+      return null;
+    }
+
     // page protection 2nd phase
     if (isAuth() && isAuth().role === 'Customer'){
-        Router.push('/customer');
+        Router.push('/customer',null,{shallow:true});
     }
     else  if (isAuth() && isAuth().role === 'Shopper'){
         Router.push('/shopper');
@@ -26,6 +30,8 @@ const index = () => {
     }
 
     
+
+
 
     return (
         <React.Fragment>
