@@ -50,14 +50,14 @@ const Profile = () => {
                     <div className="card-footer">
                         <span className="btn btn-primary">
                             {isAuth().role === "Dealer" && (
-                                <Link href={`/dealer/${isAuth().id}`}>
+                                <Link href={`/dealer/profile/${id}`}>
                                     <a style={{color: '#fff'}}>
                                         Edit
                                     </a>
                                 </Link>
                             )}
                             {isAuth().role === "Admin" && (
-                                <Link href={`/admin/${isAuth().id}`}>
+                                <Link href={`/admin/profile/${id}`}>
                                     <a style={{color: '#fff'}}>
                                         Edit
                                     </a>
@@ -81,7 +81,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-        </div><hr/>
+        </div><br/>
         <div className="conatiner">
             <div className="row">
               <div className="col-md-12 col-12">
@@ -89,23 +89,23 @@ const Profile = () => {
                         <p className="pdetail">{isAuth().about}</p>
               </div>
             </div>
-        </div><hr/>
+        </div><br/>
         <div className="conatiner">
             <div className="row">
               <div className="col-md-12 col-12">
                 <h4 className="detail center">Authorised Permissions</h4><br/>
                        {isAuth().role === 'Dealer' && (
-                           <ol>
+                           <ol style={{marginLeft: "150px"}}>
                                <li>Create/Update/Read Product</li>
                                <li>Create/Update/Read Category</li>
                                <li>Create/Update/Read Brand</li>
-                               <li>Create/Update/Read Brand Color & Size</li><br/>
+                               <li>Create/Update/Read Brand Color & Size</li>
                                <p><strong>Contact Database Administrator for more authorization permissions</strong></p>
                            </ol>
                            
                        )}
                         {isAuth().role === 'Admin' && (
-                           <ol>
+                           <ol style={{marginLeft: "50px"}}>
                                <li>Delete User</li>
                                <li>Update User</li>
                                <li>Delete Product</li>
@@ -124,34 +124,120 @@ const Profile = () => {
                        )}
               </div>
             </div>
-        </div><hr/>
+        </div><br/>
         <div className="conatiner">
             <div className="row">
               <div className="col-md-12 col-12">
                 <h4 className="detail center">Social Links</h4><br/>
+                {isAuth().role === 'Admin' && (
+                    <>
                         <p className="pdetail">
-                            <span>
-                                <a href={isAuth().facebook}>
-                                    Facebook 
+                        <span>
+                            <a href={isAuth().facebook}>
+                                Facebook 
+                            </a>
+                        </span>    
+                        </p>
+                        <p className="pdetail">
+                        <span>
+                            {isAuth().twitter && (
+                                <a href={isAuth().twitter}>
+                                    Twitter
                                 </a>
-                            </span>    
+                            )}  
+                        </span>    
                         </p>
                         <p className="pdetail">
-                            <span>
-                                {isAuth().twitter && (
-                                    <a href={isAuth().twitter}>
-                                      Twitter
-                                   </a>
-                                )}  
-                            </span>    
+                        <span>
+                            <a href={isAuth().youtube}>
+                                Youtube
+                            </a>
+                        </span>    
+                        </p>
+                    </>
+                )}
+                 {isAuth().role === 'Dealer' && (
+                    <>
+                        <p className="pdetail">
+                        <span>
+                            <a href={isAuth().facebook}>
+                                Facebook 
+                            </a>
+                        </span>    
                         </p>
                         <p className="pdetail">
-                            <span>
-                                <a href={isAuth().youtube}>
-                                    Youtube
+                        <span>
+                            {isAuth().twitter && (
+                                <a href={isAuth().twitter}>
+                                    Twitter
                                 </a>
-                            </span>    
+                            )}  
+                        </span>    
                         </p>
+                        <p className="pdetail">
+                        <span>
+                            <a href={isAuth().youtube}>
+                                Youtube
+                            </a>
+                        </span>    
+                        </p>
+                    </>
+                )}
+                 {isAuth().role === 'Shopper' && (
+                    <>
+                        <p className="pdetail">
+                        <span>
+                            <a href={isAuth().facebook}>
+                                Facebook 
+                            </a>
+                        </span>    
+                        </p>
+                        <p className="pdetail">
+                        <span>
+                            {isAuth().twitter && (
+                                <a href={isAuth().twitter}>
+                                    Twitter
+                                </a>
+                            )}  
+                        </span>    
+                        </p>
+                        <p className="pdetail">
+                        <span>
+                            <a href={isAuth().youtube}>
+                                Youtube
+                            </a>
+                        </span>    
+                        </p>
+                    </>
+                )}
+                 {isAuth().role === 'Customer' && (
+                    <>
+                        <p className="pdetail">
+                        <span>
+                            <a href={isAuth().facebook}>
+                                Facebook 
+                            </a>
+                        </span>    
+                        </p>
+                        <p className="pdetail">
+                        <span>
+                            {isAuth().twitter && (
+                                <a href={isAuth().twitter}>
+                                    Twitter
+                                </a>
+                            )}  
+                        </span>    
+                        </p>
+                        <p className="pdetail">
+                        <span>
+                            <a href={isAuth().youtube}>
+                                Youtube
+                            </a>
+                        </span>    
+                        </p>
+                    </>
+                )}
+                      
               </div>
             </div>
         </div>

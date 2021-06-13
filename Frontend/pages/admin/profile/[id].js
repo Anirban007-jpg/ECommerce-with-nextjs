@@ -1,6 +1,6 @@
 import React from 'react'
 import {withRouter} from 'next/router'
-import Dashboard from '../../../components/dealer/Dashboard';
+import Dashboard from '../../../components/admin/Dashboard';
 
 const update = ({router}) => {
     return (

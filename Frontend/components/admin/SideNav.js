@@ -38,10 +38,10 @@ const SideNav = ({router}) => {
                 </li>
             </section>
             <section className="links">
-                <li className="menu-item" style={Changestyle(router, "/admin/adminprofile")}>
-                  <a href="/admin/adminprofile"><i className="fas fa-user"></i></a>&nbsp;&nbsp;&nbsp;
+                <li className="menu-item" style={Changestyle(router, "/admin/profile")}>
+                  <a href="/admin/profile"><i className="fas fa-user"></i></a>&nbsp;&nbsp;&nbsp;
                   <span className="items">
-                    <Link href="/admin/adminprofile">
+                    <Link href="/admin/profile">
                       <a style={{color: 'black', fontWeight: '700'}}>
                         Profile
                       </a>
