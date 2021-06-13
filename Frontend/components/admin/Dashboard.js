@@ -6,7 +6,7 @@ const Dashboard = ({children}) => {
     return (
         <>
             <SideNav />
-            <div style={{marginLeft: "70px"}}>
+            <div style={{marginLeft: "30px"}}>
                 {children}
             </div>
            

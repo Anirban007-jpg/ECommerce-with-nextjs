@@ -26,8 +26,18 @@
 	}
 }
 
+.detail {
+  font-weight: 700;
+  text-decoration: underline;
+}
 
+.heading3 {
+  font-weight: 700;
+}
 
-
+.pdetail {
+  margin-left: 50px;
+  text-align: justify;
+}
 
 

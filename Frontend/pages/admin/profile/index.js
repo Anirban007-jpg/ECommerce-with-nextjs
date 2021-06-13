@@ -1,12 +1,32 @@
 import React,{useEffect} from 'react'
-import Dashboard from '../../components/admin/Dashboard';
-import Profile from '../../components/admin/profile/Profile';
-
-
+import Dashboard from '../../../components/admin/Dashboard';
+import Profile from '../../../components/profile/ProfileComponent';
+import {isAuth,getCookie,logout} from '../../../actions/auth';
+import Router from 'next/router';
 
 const adminprofile = () => {
 
-   
+  const token = getCookie('token');
+
+    // token expiry protection and user protection
+    useEffect(() => {
+     if (!isAuth()){
+        Router.push('/');
+    }  
+  },[])
+
+
+      // page protection 2nd phase
+      if (isAuth() && isAuth().role === 'Customer'){
+        Router.push('/customer');
+    }
+    else  if (isAuth() && isAuth().role === 'Shopper'){
+        Router.push('/shopper');
+    }
+    else  if (isAuth() && isAuth().role === 'Dealer'){
+        Router.push('/dealer');
+    }
+
     return (
         <React.Fragment>
             <Dashboard>

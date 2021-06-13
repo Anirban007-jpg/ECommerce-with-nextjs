@@ -1,8 +1,10 @@
 import React,{useEffect} from 'react'
-import { isAuth } from '../../actions/auth';
-import Dashboard from '../../components/dealer/Dashboard';
-import {getCookie,logout} from '../../actions/auth';
+import { isAuth } from '../../../actions/auth';
+import Dashboard from '../../../components/dealer/Dashboard';
+import {getCookie,logout} from '../../../actions/auth';
 import Router from 'next/router';
+import Profile from '../../../components/profile/ProfileComponent';
+
 
 const profile = () => {
 
@@ -10,28 +12,23 @@ const profile = () => {
 
     // token expiry protection and user protection
     useEffect(() => {
-        if (isAuth() === false){
-            logout(() => {
-                Router.push({
-                    pathname: '/login',
-                    query : {
-                        message : 'Something went wrong! Please Login again'
-                    }
-                })
-            })
-        }
-        else if (!token){
-            logout(() => {
-                Router.push({
-                    pathname: '/login',
-                    query : {
-                        message : 'Your session has expired. Please Log in again'
-                    }
-                })
-            })
-        }
+        if (!isAuth()){
+          Router.push('/');
+      }
     
     },[])
+
+  
+    // page protection 2nd phase
+  if (isAuth() && isAuth().role === 'Customer'){
+      Router.push('/customer',null,{shallow:true});
+  }
+  else  if (isAuth() && isAuth().role === 'Shopper'){
+      Router.push('/shopper');
+  }
+  else  if (isAuth() && isAuth().role === 'Admin'){
+      Router.push('/admin');
+  }
    
     return (
         <React.Fragment>
@@ -39,7 +36,7 @@ const profile = () => {
                 <div className="canvas" style={{height: "200px"}}>
                         <h1 className="heading1">User Profile</h1>
                 </div><br/>
-                <p style={{marginLeft: "300px"}}>profile Component</p>
+                <p style={{marginLeft: "50px"}}><Profile/></p>
             </Dashboard> 
             <footer className="page-footer" style={{backgroundColor: '#757575', marginTop : "750px"}}>
           <div className="container">

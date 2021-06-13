@@ -4,7 +4,7 @@ import App from 'next/app';
 import "../static/css/global.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Scrollbars } from 'react-custom-scrollbars';
+
 // import '../static/css/SideNav.css';
 
 
