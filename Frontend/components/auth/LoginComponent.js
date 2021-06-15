@@ -113,7 +113,6 @@ const RegisterComponent = () => {
                         <div className="form-group">
                             <button className="btn btn-primary" type="submit"><i className="fas fa-user-plus"></i>{" "}Submit</button><br/><hr/>
                             <strong><h6 style={{color: "red"}}>Don't have an Account?<Link href="/register"> Register Here</Link></h6></strong>
-                            <strong><p style={{fontSize: "15px"}}><Link href="/">Go Back --&gt;</Link></p></strong>
                             <strong><p style={{fontSize: "15px"}}><Link href="/password/forgot">Forgot Password --&gt;</Link></p></strong>
                         </div>
                         </>

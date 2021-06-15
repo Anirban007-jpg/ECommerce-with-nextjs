@@ -30,10 +30,10 @@ const Profile = () => {
         <>
         <div className="container-fluid">
             <div className="row">
-                <div className="col-md-5 text-center pt-4">
-                    <img src="https://www.dropbox.com/s/dnai9lwy7yaghvf/20210420_013825.png?dl=0&raw=1" style={{height: "18rem", width: "18rem", borderColor: 'black', borderWidth: '0', borderRadius: "150px", objectFit: 'cover'}} className="img-thumbnail" />
+                <div className="col-md-4 text-center pt-4">
+                    <img src="https://www.dropbox.com/s/dnai9lwy7yaghvf/20210420_013825.png?dl=0&raw=1" style={{height: "18rem", width: "18rem", borderColor: 'black', borderWidth: '0', borderStyle: 'solid', borderRadius: "150px", objectFit: 'cover'}} className="img-thumbnail" />
                 </div>
-                <div className="col-md-7">
+                <div className="col-md-8 mr-6">
                     <div className="card">
                         <div className="card-header">
                             <h4 className="heading3">Profile</h4>    

@@ -3,6 +3,7 @@ import { forgotPassword } from "../../actions/auth";
 import Layout from "../../components/Layout";
 import {toast} from 'react-toastify';
 import Head from 'next/head';
+import Link from 'next/link';
 import {API_NAME,DOMAIN} from "../../config";
 
 const ForgotPassword = () => {
@@ -58,7 +59,8 @@ const ForgotPassword = () => {
                 <input type="email" onChange={handleChange('email')} className="form-control" value={email} placeholder="Enter your registered email" required />
             </div>
             <div>
-                <button className="btn btn-primary">Send Password Reset link</button>
+                <button className="btn btn-primary">Send Password Reset link</button><br/><br/>
+                <strong><p style={{fontSize: "15px"}}><Link href="/">Go Back --&gt;</Link></p></strong>
             </div>
         </form>
         </div>

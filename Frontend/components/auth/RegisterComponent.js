@@ -194,7 +194,6 @@ const RegisterComponent = () => {
                         <div className="form-group">
                             <button className="btn btn-primary" type="submit"><i className="fas fa-user-plus"></i>{" "}Submit</button><br/><hr/>
                             <strong><h6 style={{color: "red"}}>Already have an Account?<Link href="/login"> Log In Here</Link></h6></strong>
-                            <strong><p style={{fontSize: "15px"}}><Link href="/">Go Back --&gt;</Link></p></strong>
                         </div>
                         </>
                     )}
@@ -204,10 +203,9 @@ const RegisterComponent = () => {
 
     return (
             <React.Fragment>
-                <hr/>
                 {error ? toast.error(error) : ''}
                 {success ? <div className="alert alert-success">{success}<Link href="/login">Sign in</Link></div>:''}
-                <hr/><br/>
+                <br/><br/>
                 {showForm && RegistrationForm(name,email,address,mobile_no,about,password,confirmed_password,role,loading, twitter,facebook,youtube)}
             </React.Fragment>
     )
