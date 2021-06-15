@@ -3,7 +3,7 @@ import React,{useEffect} from 'react'
 import {isAuth} from "../../actions/auth";
 import Router from 'next/router'
 import Head from 'next/head';
-
+import { API_NAME, DOMAIN } from "../../config";
 
 const index = () => {
 
@@ -11,11 +11,11 @@ const index = () => {
 
     const head = () => (
         <Head>
-            <title>Admin Dashboard Page | {API_NAME}</title>
+            <title>Dashboard | {API_NAME}</title>
             <meta name="description"/>
             <link rel="canonical" href={`${DOMAIN}/admin`} />
             <meta property="og:title" content={`Admin Dashboard Page | ${API_NAME}`} />
-            <meta name="og:description" content="This is the Registration Page" />
+            <meta name="og:description" content="This is the Dashboard Page" />
             <meta property="og:type" content="website" />
             <meta property="og:url" content={`${DOMAIN}/admin`} />
             <meta property="og:site_name" content={`${API_NAME}`} />
@@ -46,6 +46,7 @@ const index = () => {
 
     return (
         <React.Fragment>
+          {head()}
             <Dashboard />
             <div className="canvas">
                 <h1>Admin Dashboard</h1>

@@ -36,8 +36,42 @@
 }
 
 .pdetail {
-  margin-left: 50px;
+  margin-left: 170px;
+  border-width: 5px;
+  border-color:darkgray;
+  border-style: ridge;
+  height: 300px;
+  place-content: center;
+  width: 80%;
+}
+.pdetail .text {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-left:5px;
+  margin-right: 5px;
   text-align: justify;
+  font-weight: bold;
 }
 
 
+
+
+.order {
+  margin-left: 50px;
+  margin-left: 170px;
+  border-width: 5px;
+  border-color:darkgray;
+  border-style: ridge;
+  height: 300px;
+  place-content: center;
+  width: 80%;
+}
+
+.ordertext{
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-left:5px;
+  margin-right: 5px;
+  text-align: justify;
+  font-weight: bold;
+}

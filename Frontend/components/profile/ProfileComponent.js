@@ -85,51 +85,15 @@ const Profile = () => {
         <div className="conatiner">
             <div className="row">
               <div className="col-md-12 col-12">
-                <h4 className="detail center">About Yourself</h4><br/>
-                        <p className="pdetail">{isAuth().about}</p>
+                <h4 className="detail center">User Bio</h4><br/>
+                       
               </div>
-            </div>
-        </div><br/>
-        <div className="conatiner">
-            <div className="row">
-              <div className="col-md-12 col-12">
-                <h4 className="detail center">Authorised Permissions</h4><br/>
-                       {isAuth().role === 'Dealer' && (
-                           <ol style={{marginLeft: "150px"}}>
-                               <li>Create/Update/Read Product</li>
-                               <li>Create/Update/Read Category</li>
-                               <li>Create/Update/Read Brand</li>
-                               <li>Create/Update/Read Brand Color & Size</li>
-                               <p><strong>Contact Database Administrator for more authorization permissions</strong></p>
-                           </ol>
-                           
-                       )}
-                        {isAuth().role === 'Admin' && (
-                           <ol style={{marginLeft: "50px"}}>
-                               <li>Delete User</li>
-                               <li>Update User</li>
-                               <li>Delete Product</li>
-                               <li>Delete Category</li>
-                               <li>Delete Brand</li>
-                               <li>Delete Brand Color & Size</li>
-                           </ol>
-                       )}
-                        {isAuth().role === 'Customer' && (
-                           <p></p>
-                       )}
-                        {isAuth().role === 'Shopper' && (
-                           <ol>
-                               <li>Manage Pricing</li>
-                           </ol>
-                       )}
-              </div>
-            </div>
-        </div><br/>
-        <div className="conatiner">
-            <div className="row">
-              <div className="col-md-12 col-12">
-                <h4 className="detail center">Social Links</h4><br/>
-                {isAuth().role === 'Admin' && (
+
+              <p className="pdetail">
+                  <div className="text">
+                      {isAuth().about}
+                  </div><hr/>
+                  {isAuth().role === 'Admin' && (
                     <>
                         <p className="pdetail">
                         <span>
@@ -158,14 +122,14 @@ const Profile = () => {
                 )}
                  {isAuth().role === 'Dealer' && (
                     <>
-                        <p className="pdetail">
+                        <p className="pdetails">
                         <span>
                             <a href={isAuth().facebook}>
                                 Facebook 
                             </a>
                         </span>    
                         </p>
-                        <p className="pdetail">
+                        <p className="pdetails">
                         <span>
                             {isAuth().twitter && (
                                 <a href={isAuth().twitter}>
@@ -174,7 +138,7 @@ const Profile = () => {
                             )}  
                         </span>    
                         </p>
-                        <p className="pdetail">
+                        <p className="pdetails">
                         <span>
                             <a href={isAuth().youtube}>
                                 Youtube
@@ -185,14 +149,14 @@ const Profile = () => {
                 )}
                  {isAuth().role === 'Shopper' && (
                     <>
-                        <p className="pdetail">
+                        <p className="pdetails">
                         <span>
                             <a href={isAuth().facebook}>
                                 Facebook 
                             </a>
                         </span>    
                         </p>
-                        <p className="pdetail">
+                        <p className="pdetails">
                         <span>
                             {isAuth().twitter && (
                                 <a href={isAuth().twitter}>
@@ -201,7 +165,7 @@ const Profile = () => {
                             )}  
                         </span>    
                         </p>
-                        <p className="pdetail">
+                        <p className="pdetails">
                         <span>
                             <a href={isAuth().youtube}>
                                 Youtube
@@ -212,14 +176,14 @@ const Profile = () => {
                 )}
                  {isAuth().role === 'Customer' && (
                     <>
-                        <p className="pdetail">
+                        <p className="pdetails">
                         <span>
                             <a href={isAuth().facebook}>
                                 Facebook 
                             </a>
                         </span>    
                         </p>
-                        <p className="pdetail">
+                        <p className="pdetails">
                         <span>
                             {isAuth().twitter && (
                                 <a href={isAuth().twitter}>
@@ -228,7 +192,7 @@ const Profile = () => {
                             )}  
                         </span>    
                         </p>
-                        <p className="pdetail">
+                        <p className="pdetails">
                         <span>
                             <a href={isAuth().youtube}>
                                 Youtube
@@ -237,10 +201,46 @@ const Profile = () => {
                         </p>
                     </>
                 )}
-                      
+              </p>
+            </div>
+        </div><br/>
+        <div className="conatiner">
+            <div className="row">
+              <div className="col-md-12 col-12">
+                <h4 className="detail center">Authorised Permissions</h4><br/>
+                       {isAuth().role === 'Dealer' && (
+                           <ol className="order">
+                               <li className="ordertext">Create/Update/Read Product</li>
+                               <li className="ordertext">Create/Update/Read Category</li>
+                               <li className="ordertext">Create/Update/Read Brand</li>
+                               <li className="ordertext">Create/Update/Read Brand Color & Size</li><hr/>
+                               <p>Contact Database Administrator for more authorization permissions</p>
+                           </ol>
+                           
+                       )}
+                        {isAuth().role === 'Admin' && (
+                           <ol className="order">
+                               <li className="ordertext">Delete User</li>
+                               <li className="ordertext">Update User</li>
+                               <li className="ordertext">Delete Product</li>
+                               <li className="ordertext">Delete Category</li>
+                               <li className="ordertext">Delete Brand</li>
+                               <li className="ordertext">Delete Brand Color & Size</li>
+                               <p>Contact Database Administrator for more authorization permissions</p>
+                           </ol>
+                       )}
+                        {isAuth().role === 'Customer' && (
+                           <p>Contact Database Administrator for more authorization permissions</p>
+                       )}
+                        {isAuth().role === 'Shopper' && (
+                           <ol>
+                               <li className="ordertext">Manage Pricing</li>
+                               <p>Contact Database Administrator for more authorization permissions</p>
+                           </ol>
+                       )}
               </div>
             </div>
-        </div>
+        </div><br/>
         </>
     )
 }
