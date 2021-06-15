@@ -48,11 +48,12 @@ const adminprofile = () => {
           {head()}
             <Dashboard>
             <div className="canvas">
-                    <h1 style={{fontSize: "60px"}}>User Profile</h1>
+                    <h1 className="heading1">User Profile</h1>
             </div><br/>
      
-              <Profile />
-               
+            <p style={{marginLeft: "50px"}}><Profile/></p>
+                
+            </Dashboard>
               <footer className="page-footer" style={{backgroundColor: '#757575'}}>
           <div className="container">
             <div className="row">
@@ -74,8 +75,7 @@ const adminprofile = () => {
             </div>
           </div>
         </footer>
-            
-            </Dashboard>
+           
         </React.Fragment>
     )
 }
