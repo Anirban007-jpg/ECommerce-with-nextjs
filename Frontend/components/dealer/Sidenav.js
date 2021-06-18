@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import Link from 'next/link';
-import {logout} from "../../actions/auth";
+import {logout, isAuth} from "../../actions/auth";
 import Router, {withRouter} from "next/router";
 import {API_NAME} from '../../config';
 import '../../static/css/Sidenav.css';
@@ -39,9 +39,13 @@ const Sidenav = ({router}) => {
           </section>
           <section className="links">
               <li className="menu-item" style={styleChange(router, "/dealer/profile")}>
-                <a href="/dealer/profile"><i className="fas fa-user"></i></a>&nbsp;&nbsp;&nbsp;
+                <i className="fas fa-user"></i>&nbsp;&nbsp;&nbsp;
                 <span className="items">
-                  <Link href="/dealer/profile">
+                  <Link href={{
+                      pathname : '/dealer/profile',
+                      query : {id : 'id'},
+                    }}
+                  >
                     <a style={{color: 'black', fontWeight: '700'}}>
                       Profile
                     </a>

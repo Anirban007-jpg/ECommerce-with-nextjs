@@ -2,12 +2,13 @@ import React,{useEffect} from 'react'
 import { isAuth } from '../../../actions/auth';
 import Dashboard from '../../../components/dealer/Dashboard';
 import {getCookie,logout} from '../../../actions/auth';
-import Router from 'next/router';
-import Profile from '../../../components/profile/ProfileComponent';
+import Router, {withRouter} from 'next/router';
+import Profile from '../../../components/profile/Profile';
 import Head from 'next/head';
 import { API_NAME, DOMAIN } from "../../../config";
+import {getspecuser} from '../../../actions/user';
 
-const profile = () => {
+const profile = ({router}) => {
 
     const head = () => (
         <Head>
@@ -54,6 +55,7 @@ const profile = () => {
                 </div><br/>
                 <p style={{marginLeft: "50px"}}><Profile/></p>
             </Dashboard> 
+            
             <footer className="page-footer" style={{backgroundColor: '#757575'}}>
           <div className="container">
             <div className="row">
@@ -79,4 +81,4 @@ const profile = () => {
     )
 }
 
-export default profile
+export default withRouter(profile)

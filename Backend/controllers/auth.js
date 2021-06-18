@@ -21,8 +21,8 @@ exports.googleLogin = (req,res) => {
                     // console.log(user)
                     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
                     res.cookie('token', token, { expiresIn: '1d' });
-                    const { _id, email, name, role, username } = user;
-                    return res.json({ token, user: { _id, email, name, role, username } });
+                    const { _id, email, name, role, username, about, youtube, twitter , facebook, address, mobile_no, registered_on } = user;
+                    return res.json({ token, user: {  _id, email, name, role, username, about, youtube, twitter , facebook, address, mobile_no, registered_on  } });
                 } else {
                     let username = sid.generate();
                     let profile = `${process.env.CLIENT_URL}/profile/${username}`;

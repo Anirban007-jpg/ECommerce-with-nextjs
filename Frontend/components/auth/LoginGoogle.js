@@ -20,6 +20,8 @@ const LoginGoogle = () => {
                         Router.push(`/shopper`);
                     } else if (isAuth() && isAuth().role === 'Customer') {
                         Router.push(`/customer`);
+                    }else if (isAuth() && isAuth().role === 'Admin') {
+                        Router.push(`/admin`);
                     }
                 });
             }

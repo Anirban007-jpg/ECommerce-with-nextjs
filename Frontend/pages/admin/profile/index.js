@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import Dashboard from '../../../components/admin/Dashboard';
-import Profile from '../../../components/profile/ProfileComponent';
+import Profile from '../../../components/profile/Profile';
 import {isAuth,getCookie,logout} from '../../../actions/auth';
 import Router from 'next/router';
 import Head from 'next/head';
