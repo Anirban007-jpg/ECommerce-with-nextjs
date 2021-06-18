@@ -6,6 +6,7 @@ import {useEffect, useState} from 'react';
 import UpdateProfile from '../../../components/profile/UpdateProfile';
 import Head from 'next/head';
 import { API_NAME, DOMAIN } from "../../../config";
+// import '../../../static/css/form.module.css';
 
 const update = ({router, user}) => {
 
