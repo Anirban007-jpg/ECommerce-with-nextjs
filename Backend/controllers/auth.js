@@ -281,7 +281,7 @@ exports.AuthMiddleware = () => {
     const authUserId = req.auth._id;
     User.findById({_id: authUserId}).exec((err,user) => {
         if (err || !user){
-            return res.status(400).jso({
+            return res.status(400).json({
                 error: "User isn't signed in"
             })
         }
