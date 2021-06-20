@@ -9,7 +9,7 @@ router.get("/user/:userId", getuserById);
 
 
 // Update user details with photo
-router.get('/profile', requireSignin, AuthMiddleware, read);
+router.get("/profile", requireSignin, AuthMiddleware, read);
 router.put("/user/profile", requireSignin, AuthMiddleware, profileupdate);
 
 module.exports = router;

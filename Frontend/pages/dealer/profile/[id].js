@@ -1,5 +1,6 @@
 import React from 'react'
 import {withRouter} from 'next/router'
+import { isAuth } from '../../../actions/auth';
 import Dashboard from '../../../components/dealer/Dashboard';
 import { getspecuser } from '../../../actions/user';
 import {useEffect, useState} from 'react';
@@ -45,6 +46,25 @@ const update = ({router, user}) => {
     //         }
     //     })
     // } 
+
+    useEffect(() => {
+        if (!isAuth()){
+          Router.push('/');
+      }
+    
+    },[])
+
+  
+    // page protection 2nd phase
+        if (isAuth() && isAuth().role === 'Customer'){
+            Router.push('/customer',null,{shallow:true});
+        }
+        else  if (isAuth() && isAuth().role === 'Shopper'){
+            Router.push('/shopper');
+        }
+        else  if (isAuth() && isAuth().role === 'Admin'){
+            Router.push('/admin');
+        }
 
     return (
         <>

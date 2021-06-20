@@ -14,3 +14,30 @@ export const getspecuser = userId => {
         })
         .catch(err => console.log(err));
 }; 
+
+export const getProfile = (token) => {
+    return fetch(`${API}/profile`, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    }).then(response => {
+        handleResponse(response);
+        return response.json();
+    }).catch(err => console.log(err));
+}
+
+export const update = (token, formdata) => {
+    return fetch(`${API}/user/profile`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: formdata
+    }).then(response => { 
+        handleResponse(response);
+        return response.json();
+    }).catch(err => console.log(err))
+}

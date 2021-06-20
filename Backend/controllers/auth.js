@@ -166,7 +166,7 @@ exports.Logout = (req,res) => {
 
 exports.requireSignin = ejwt({
     secret: process.env.JWT_SECRET,
-    algorithms: ['HS512'],
+    algorithms: ["HS256"],
     userProperty: "auth"
 });
 
@@ -277,7 +277,7 @@ exports.resetPassword = (req,res) => {
 }
 
 // From here upto the last comment ei gulo is for authorization
-exports.AuthMiddleware = () => {
+exports.AuthMiddleware = (req,res,next) => {
     const authUserId = req.auth._id;
     User.findById({_id: authUserId}).exec((err,user) => {
         if (err || !user){
