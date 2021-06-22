@@ -4,6 +4,7 @@ import Router from 'next/router';
 import { isAuth } from '../../actions/auth';
 import moment from 'moment';
 import Link from 'next/link';
+import {API} from '../../config';
 
 
 const Profile = () => {
@@ -33,7 +34,7 @@ const Profile = () => {
         <div className="container-fluid">
             <div className="row">
                 <div className="col-md-4 text-center pt-4">
-                    <img src="https://www.dropbox.com/s/dnai9lwy7yaghvf/20210420_013825.png?dl=0&raw=1" style={{height: "18rem", width: "18rem", borderColor: 'black', borderWidth: '0', borderStyle: 'solid', borderRadius: "150px", objectFit: 'cover'}} className="img-thumbnail" />
+                    <img src={`${API}/user/photo/${isAuth().username}`} alt="" style={{height: "18rem", width: "18rem", borderColor: 'black', borderWidth: '0', borderStyle: 'solid', borderRadius: "150px", objectFit: 'cover'}} className="img-thumbnail" />
                 </div>
                 
                 <div className="col-md-8 mr-6">

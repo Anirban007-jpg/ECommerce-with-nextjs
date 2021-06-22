@@ -58,7 +58,7 @@ exports.profileupdate = (req,res) => {
         user.save((err,result) => {
             if (err){
                 return res.status(400).json({
-                    error: err
+                    error: "User update failed"
                 })
             }
     
@@ -68,4 +68,21 @@ exports.profileupdate = (req,res) => {
     })
 
  
+}
+
+exports.photo = (req,res) => {
+    const username = req.params.username;
+
+    User.findOne({username}).exec((err, user) => {
+        if (err || !user){
+            return res.status(404).json({
+                error: 'User not found'
+            })
+        }
+
+        if (user.profilepic.data) {
+            res.set('Content-Type', user.profilepic.contentType);
+            return res.send(user.profilepic.data);
+        }
+    })
 }
