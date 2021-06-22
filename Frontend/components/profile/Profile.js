@@ -53,28 +53,28 @@ const Profile = () => {
                         <div className="card-footer">
                             <span className="btn btn-primary">
                                 {isAuth().role === "Dealer" && (
-                                    <Link href={`/dealer/profile/${id}`}>
+                                    <Link href={`/dealer/profile/${isAuth()._id}`}>
                                         <a style={{color: '#fff'}}>
                                             Edit
                                         </a>
                                     </Link>
                                 )}
                                 {isAuth().role === "Admin" && (
-                                    <Link href={`/admin/profile/${id}`}>
+                                    <Link href={`/admin/profile/${isAuth()._id}`}>
                                         <a style={{color: '#fff'}}>
                                             Edit
                                         </a>
                                     </Link>
                                 )}
                                 {isAuth().role === "Shopper" && (
-                                    <Link href={`/shopper/${isAuth().id}`}>
+                                    <Link href={`/shopper`}>
                                         <a style={{color: '#fff'}}>
                                             Edit
                                         </a>
                                     </Link>
                                 )}
                                 {isAuth().role === "Customer" && (
-                                    <Link href={`/customer/${isAuth().id}`}>
+                                    <Link href={`/customer`}>
                                         <a style={{color: '#fff'}}>
                                             Edit
                                         </a>

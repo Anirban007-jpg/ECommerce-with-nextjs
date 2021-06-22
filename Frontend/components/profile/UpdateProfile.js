@@ -1,33 +1,35 @@
 import React,{useEffect,useState} from 'react'
-import {getCookie} from '../../actions/auth';
-import { getProfile } from '../../actions/user';
+import {getCookie, updateUser} from '../../actions/auth';
+import { getProfile, update } from '../../actions/user';
+import {toast} from 'react-toastify';
+import Router from 'next/router';
+import { Form } from 'reactstrap';
+import FormData from 'form-data';
 import "../../static/css/form.css";
+    
 
 const UpdateProfile = ({user}) => {
 
     const [values, setValues] = useState({
-        email: user.email,
-        address: user.address,
-        mobile_no : user.mobile_no,
-        about: user.about,
+        name: '',
+        email: '',
+        address: '',
+        mobile_no : '',
+        about: '',
         User: '',
-        username: user.username,
-        twitter: user.twitter,
-        facebook: user.facebook,
-        youtube: user.youtube,
-        loading: false,
+        username: '',
+        twitter: '',
+        facebook: '',
+        youtube: '',
         success: '',
         error: '',
         profilepic: '',
-        userData: '',
-        user_for_photo: '',
-        file: null
+        user_for_photo: ''
     });
+    const [loading, setLoading] = useState(false);
   
-
-    
-
     const token = getCookie('token');
+ 
     const { email,
         address,
         mobile_no,
@@ -37,20 +39,21 @@ const UpdateProfile = ({user}) => {
         twitter,
         facebook,
         youtube,
-        loading,
         success,
         error,
         profilepic,
-        userData,
-        file
+        name,
     } = values;
+
+    const [userData, setUserData] = useState(new FormData());
+    const [imgfile , setImgFile] = useState('');
 
     const init = () => {
         getProfile(token).then(data => {
             if (data.error){
                 setValues({...values, error: data.error});
             }else{
-                setValues({...values, User: data})
+                setValues({...values, User: data, email: data.email, address: data.address, mobile_no: data.mobile_no, about: data.about, username: data.username, facebook: data.facebook, youtube: data.youtube})
             }
         });
     }
@@ -60,19 +63,43 @@ const UpdateProfile = ({user}) => {
     }, []);
 
     const handleChange = name => e => {
-
+        // console.log(e.target.files[0]);
+        const value = name === "profilepic" ? e.target.files[0] : e.target.value;
+        const file = name === "profilepic" ? URL.createObjectURL(e.target.files[0]) : '';
+        // set form data
+        userData.set(name, value);
+        setValues({...values, [name]: value, success: '', error: ''});
+        setUserData(userData);
     }
+
+    // const imghandle = () => {
+        
+    // }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setLoading(true);
+        update(token, userData).then(data => {
+            if (data.error){
+                setValues({ ...values,error:data.error,success: ''});
+            } else {
+                // update the user in localstorage
+                updateUser(data, () => {
+                    setValues({ ...values, email: data.email, address: data.address, mobile_no: data.mobile_no, about: data.about, username: data.username, youtube: data.youtube, facebook: data.facebook, success: "User Updated Succesfully"});
+                    setLoading(false);
+                })
+            }
+            
+        })
     }
+
+    
  
     // building update form
     const UpdateForm = () => (
-     <>
+        <>
             <form className="form" onSubmit={handleSubmit} encType="multipart/form-data">
-                <div className="title">Welcome</div>
-                <div className="subtitle">Update Your Profile!</div>
+                <div className="title">Welcome {User.name}! Please Update your Profile</div><hr/>
                 <div className="input-container ic1">
                     <input id="email" className="input" type="text" placeholder=" " value={email} onChange={handleChange('email')}/>
                     <label for="email" className="placeholder pb-3"><i className="fas fa-envelope display-6"></i>&nbsp;&nbsp;&nbsp;Email</label><br/>
@@ -93,10 +120,10 @@ const UpdateProfile = ({user}) => {
                     <input id="username" className="input" type="text" placeholder=" " value={username} onChange={handleChange('username')}/>
                     <label for="username" className="placeholder pb-3" style={{marginTop: '166px'}}><i className="fas fa-user display-6"></i>&nbsp;&nbsp;&nbsp;Change Username:</label>
                 </div>
-                <div className="input-container ic1">
+                {/* <div className="input-container ic1">
                     <input id="twitter" className="input" type="text" placeholder=" " value={twitter} onChange={handleChange('twitter')}/>
                     <label for="twitter" className="placeholder pb-3" style={{marginTop: '156px'}}><i className="fas fa-twitter display-6"></i>&nbsp;&nbsp;&nbsp;Twitter Link</label>
-                </div>
+                </div> */}
                   <div className="input-container ic2">
                     <input id="youtube" className="input" type="text" placeholder=" " value={youtube} onChange={handleChange('youtube')}/>
                     <label for="youtube" className="placeholder pb-3" style={{marginTop: '176px'}}><i className="fab fa-youtube display-6"></i>&nbsp;&nbsp;&nbsp;Youtube Link</label>
@@ -115,10 +142,12 @@ const UpdateProfile = ({user}) => {
                 </div>
             </form>
      </>   
+          
     )
 
     return (
-        <>
+        <>  
+            <br/><br/>
             {UpdateForm()}
         </>
     )

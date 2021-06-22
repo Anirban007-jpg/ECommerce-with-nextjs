@@ -18,8 +18,7 @@ exports.getuserById = (req,res) => {
         
         user = data;
         res.status(200).json({
-            user,
-
+            user
         })
     })
     
@@ -37,12 +36,13 @@ exports.profileupdate = (req,res) => {
     form.parse(req, (err, fields, files) => {
         if (err){
             return res.status(400).json({
-                error: 'Image could not be uploaded successfully'
+                error: err
             })
         }
 
         let user = req.profile;
-        user = _.extends(user, fields);
+        // console.log(user);
+        user = _.extend(user, fields);
 
         if(files.profilepic) {
             if (files.profilepic.size > 10000000) {
@@ -50,22 +50,22 @@ exports.profileupdate = (req,res) => {
                     error: 'Image should be less than 1mb'
                 })
             }
+            // console.log(files.profilepic)
             user.profilepic.data = fs.readFileSync(files.profilepic.path);
             user.profilepic.contentType = files.profilepic.type;
         }
+        
+        user.save((err,result) => {
+            if (err){
+                return res.status(400).json({
+                    error: err
+                })
+            }
+    
+            user.hashed_password = undefined;
+            res.json(user);
+        })
     })
 
-    user.save((err,result) => {
-        if (err){
-            return res.status(400).json({
-                error: 'Update User failed'
-            })
-        }
-
-        user.password = undefined;
-        res.status(200).json({
-            user,
-            message: 'user updated successfully'
-        });
-    })
+ 
 }
